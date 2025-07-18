@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Make a Reading</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="./output.css" rel="stylesheet" />
+	</head>
+	<body class="bg-[#fff]">
+		<div class="flex flex-col w-full justify-center items-center border-b-1 border-black lg:justify-start lg:flex-row">
+			<div class="flex w-full justify-center items bg-center lg:w-[15%]">
+				<h1 class="font-roboto font-bold text-[#8b0000] text-3xl p-[1em] lg:pl-[2em]"><a href="index.html">Madam Eva</a></h1>
+			</div>
+			<div class="flex w-full justify-center items-center lg:justify-end">
+				<ul class="flex flex-col w-full justify-center items-center lg:gap-[10em] lg:flex-row lg:w-auto">
+					<li class="flex w-full justify-center items-center border-t-1 border-black transition-colors duration-400 hover:bg-[#FAF9F6] lg:border-0 lg:w-auto lg:p-[0.5em]">
+						<p class="font-roboto text-[#800000] text-xl whitespace-nowrap"><a href="tarot.html">Make a Reading</a></p>
+					</li>
+					<li class="hidden lg:mr-[15em] lg:flex">
+						<a href="https://github.com/ErenGulenoglu?tab=repositories" target="_blank">
+							<div class="group relative">
+								<button class="cursor-pointer">
+									<svg
+										stroke-linejoin="round"
+										stroke-linecap="round"
+										stroke-width="2"
+										stroke="currentColor"
+										fill="none"
+										viewBox="0 0 24 24"
+										class="w-8 hover:scale-125 duration-200 hover:stroke-[#800000]"
+									>
+										<path
+											d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+										></path>
+									</svg>
+								</button>
+								<span
+									class="absolute -bottom-14 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
+									>GitHub<span> </span
+								></span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="flex w-full justify-center items-center mt-[2em] mb-[2em]">
+			<button
+				onclick="drawCards()"
+				class="cursor-pointer transition-all bg-[#8b0000] text-white px-6 py-2 rounded-lg border-[#470101] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+			>
+				Learn your fate.
+			</button>
+		</div>
+		<main>
+			<div class="flex w-full flex-col justify-center items-center flex-wrap">
+				<div class="flex w-full flex-col justify-center items-center">
+					<!--Low Cards-->
+					<div class="flex flex-col w-full justify-center items-center lg:mb-[em] lg:gap-[5em] lg:flex-row">
+						<div class="flex flex-col w-full h-full items-center flex-wrap text-center lg:w-[30em] lg:h-[40em] border-b-2 border-black lg:border-0">
+							<h1 class="underline font-cinzel text-[#800000] text-3xl font-bold text-center my-[0.8em]">Tome of Strahd</h1>
+							<div class="flex w-full justify-center items-center text-center">
+								<p class="flex w-full font-serif italic justify-center items-center text-center">This is a card of power and strength. It tells of a weapon of vengeance: a sword of sunlight.</p>
+							</div>
+							<div class="group perspective w-[14em] h-[21em] mt-[2em] lg:my-[2em]">
+								<div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-lg">
+									<!-- Front Side -->
+									<div class="flex justify-center items-center [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" alt="Front" class="h-85 w-auto object-cover" />
+									</div>
+									<!-- Back Side -->
+									<div class="flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" id="first_common" alt="Back" class="h-85 w-auto object-cover" />
+									</div>
+								</div>
+							</div>
+							<div class="flex w-[100%] h-[8em] lg:h-auto border-0 border-black justify-center items-center text-center">
+								<p class="italic px-[3em]" id="see_1">Cause we all become invisible.</p>
+							</div>
+						</div>
+						<div class="flex flex-col w-full h-full items-center flex-wrap text-center lg:w-[30em] lg:h-[40em] border-b-2 border-black lg:border-0">
+							<h1 class="underline font-cinzel text-[#800000] text-3xl font-bold text-center my-[0.8em]">Holy Symbol of Ravenkind</h1>
+							<div class="flex w-full justify-center items-center text-center">
+								<p class="flex w-full font-serif italic justify-center items-center text-center">This card tells of a powerful force for good and protection, a holy symbol of great hope.</p>
+							</div>
+							<div class="group perspective w-[14em] h-[21em] mt-[2em] lg:my-[2em]">
+								<div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-lg">
+									<!-- Front Side -->
+									<div class="flex justify-center items-center [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" alt="Front" class="h-85 w-auto object-cover" />
+									</div>
+									<!-- Back Side -->
+									<div class="flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" id="second_common" alt="Back" class="h-85 w-auto object-cover" />
+									</div>
+								</div>
+							</div>
+							<div class="flex w-[100%] h-[8em] lg:h-auto border-0 border-black justify-center items-center text-center">
+								<p class="italic px-[3em]" id="see_2">Cause we all become invisible.</p>
+							</div>
+						</div>
+						<div class="flex flex-col w-full h-full items-center flex-wrap text-center lg:w-[30em] lg:h-[40em] border-b-2 border-black lg:border-0">
+							<h1 class="underline font-cinzel text-[#800000] text-3xl font-bold text-center my-[0.8em]">Sunsword</h1>
+							<div class="flex w-full justify-center items-center text-center">
+								<p class="flex w-full font-serif italic justify-center items-center text-center">This is a card of power and strength. It tells of a weapon of vengeance: a sword of sunlight.</p>
+							</div>
+							<div class="group perspective w-[14em] h-[21em] mt-[2em] lg:my-[2em]">
+								<div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-lg">
+									<!-- Front Side -->
+									<div class="flex justify-center items-center [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" alt="Front" class="h-85 w-auto object-cover" />
+									</div>
+									<!-- Back Side -->
+									<div class="flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" id="third_common" alt="Back" class="h-85 w-auto object-cover" />
+									</div>
+								</div>
+							</div>
+							<div class="flex w-[100%] h-[8em] lg:h-auto border-0 border-black justify-center items-center text-center">
+								<p class="italic px-[3em]" id="see_3">Cause we all become invisible.</p>
+							</div>
+						</div>
+					</div>
+					<!--High Cards-->
+					<div class="flex flex-col w-full justify-center items-center lg:gap-[6em] lg:flex-row">
+						<div class="flex flex-col w-full h-full items-center flex-wrap text-center lg:w-[30em] lg:h-[40em] border-b-2 border-black lg:border-0">
+							<h1 class="underline font-cinzel text-[#800000] text-3xl font-bold text-center my-[0.8em]">Strahd's Enemy</h1>
+							<div class="flex w-full justify-center items-center text-center">
+								<p class="flex w-full font-serif italic justify-center items-center text-center">This card sheds light on one who will help you greatly in the battle against darkness.</p>
+							</div>
+							<div class="group perspective w-[14em] h-[21em] mt-[2em] lg:my-[2em]">
+								<div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-lg">
+									<!-- Front Side -->
+									<div class="flex justify-center items-center [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" alt="Front" class="h-85 w-auto object-cover" />
+									</div>
+									<!-- Back Side -->
+									<div class="flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" id="first_high" alt="Back" class="h-85 w-auto object-cover" />
+									</div>
+								</div>
+							</div>
+							<div class="flex w-[100%] h-[8em] lg:h-auto border-0 border-black justify-center items-center text-center">
+								<p class="italic px-[3em]" id="see_4">Cause we all become invisible.</p>
+							</div>
+						</div>
+						<div class="flex flex-col w-full h-full items-center flex-wrap text-center lg:w-[30em] lg:h-[40em] border-black lg:border-0">
+							<h1 class="underline font-cinzel text-[#800000] text-3xl font-bold text-center my-[0.8em]">Strahd</h1>
+							<div class="flex w-full justify-center items-center text-center">
+								<p class="flex w-full font-serif italic justify-center items-center text-center">
+									Your enemy is a creature of darkness, whose powers are beyond mortality. This card will lead you to him!
+								</p>
+							</div>
+							<div class="group perspective w-[14em] h-[21em] mt-[2em] lg:my-[2em]">
+								<div class="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-lg">
+									<!-- Front Side -->
+									<div class="flex justify-center items-center [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" alt="Front" class="h-85 w-auto object-cover" />
+									</div>
+									<!-- Back Side -->
+									<div class="flex justify-center items-center [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0">
+										<img src="assets/card_back.png" id="second_high" alt="Back" class="h-85 w-auto object-cover" />
+									</div>
+								</div>
+							</div>
+							<div class="flex w-[100%] h-[8em] lg:h-auto border-0 border-black justify-center items-center text-center">
+								<p class="italic px-[3em]" id="see_5">Cause we all become invisible.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="flex-grow h-[8em] border-t border-black flex justify-center items-center lg:justify-start lg:pl-[8em]">
+			Enjoy playing Curse of Strahd!
+			<a class="lg:hidden ml-[2em]" href="https://github.com/ErenGulenoglu?tab=repositories" target="_blank">
+				<div class="group relative">
+					<button class="cursor-pointer">
+						<svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" class="w-8 hover:scale-125 duration-200 hover:stroke-[#800000]">
+							<path
+								d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+							></path>
+						</svg>
+					</button>
+					<span
+						class="absolute -bottom-14 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
+						>GitHub<span> </span
+					></span>
+				</div>
+			</a>
+		</footer>
+		<script src="javascript.js"></script>
+	</body>
+</html>
